@@ -2,6 +2,9 @@
 
 public class Class1 {
     public static void Main() {   
+        Console.Write("Введіть кількість грошей: ");
+        int z = Convert.ToInt32(Console.ReadLine());
+        
         Console.Write("Введіть кількість зошитів: ");
         int x = Convert.ToInt32(Console.ReadLine());
 
@@ -14,6 +17,11 @@ public class Class1 {
         Console.Write("Введіть ціну однієї ручки: ");
         double penPrice = Convert.ToDouble(Console.ReadLine());
 
-        Console.WriteLine($"Загальна сума покупки: {(x * notebookPrice) + (y * penPrice)} гривень");
+
+        if (z < x + y) {
+            Console.WriteLine("За наявної кількості грошей ви не зможете здійснити таку покупку");
+        } else {
+            Console.WriteLine($"Загальна сума покупки: {(x * notebookPrice) + (y * penPrice)} гривень");
+        }
     }
 }
