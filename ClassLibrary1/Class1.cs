@@ -2,22 +2,27 @@
 
 public class Class1 {
     public static void Main() {   
-        Console.Write("Введіть число A: ");
-        int A = int.Parse(Console.ReadLine());
+        Console.Write("Введіть розмір масиву: ");
+        int size = int.Parse(Console.ReadLine());
 
-        Console.Write("Введіть число B: ");
-        int B = int.Parse(Console.ReadLine());
-
-        if (A <= B)
-        {
-            Console.WriteLine("Помилка: A повинно бути більше за B.");
-            return;
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++) {
+            Console.Write($"Введіть елемент {i + 1}: ");
+            array[i] = int.Parse(Console.ReadLine());
         }
 
-        Console.WriteLine("Числа від A до B:");
-        for (int i = A; i >= B; i--)
-        {
-            Console.WriteLine(i);
+        int positives = 0, evens = 0;
+
+        foreach (var element in array) {
+            if (element > 0) {
+                positives += element;
+            }
+
+            if (element % 2 == 0) {
+                evens++;
+            }
         }
+
+        Console.WriteLine($"Сума додатних елементів: {positives}. Кількість парних елементів: {evens}");
     }
 }
