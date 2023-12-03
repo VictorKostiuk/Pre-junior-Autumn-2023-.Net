@@ -1,7 +1,30 @@
 ﻿namespace ClassLibrary1;
 
 public class Class1 {
+    
+    static double CalculateAverage(int a, int b) { 
+        double average = (a + b) / 2.0;
+
+        return average;
+    }
+    static double MaxNumber(int[] arr,int size) { 
+        int max = arr[0];
+
+        for (int i = 0; i < size; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+
+        return max;
+    }
     public static void Main() {   
+        Console.Write("Введіть 1 число: ");
+        int a = int.Parse(Console.ReadLine());
+        
+        Console.Write("Введіть 2 число: ");
+        int b = int.Parse(Console.ReadLine());
+        
         Console.Write("Введіть розмір масиву: ");
         int size = int.Parse(Console.ReadLine());
 
@@ -11,18 +34,8 @@ public class Class1 {
             array[i] = int.Parse(Console.ReadLine());
         }
 
-        int positives = 0, evens = 0;
 
-        foreach (var element in array) {
-            if (element > 0) {
-                positives += element;
-            }
-
-            if (element % 2 == 0) {
-                evens++;
-            }
-        }
-
-        Console.WriteLine($"Сума додатних елементів: {positives}. Кількість парних елементів: {evens}");
+        Console.WriteLine(CalculateAverage(a, b));
+        Console.WriteLine(MaxNumber(array, size));
     }
 }
