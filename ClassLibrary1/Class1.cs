@@ -1,41 +1,36 @@
-﻿namespace ClassLibrary1;
+﻿using System;
 
-public class Class1 {
-    
-    static double CalculateAverage(int a, int b) { 
-        double average = (a + b) / 2.0;
+namespace ClassLibrary1
+{
+    class Car
+    {
+        private string name;
+        private int maxSpeed;
 
-        return average;
-    }
-    static double MaxNumber(int[] arr,int size) { 
-        int max = arr[0];
-
-        for (int i = 0; i < size; i++) {
-            if (max < arr[i]) {
-                max = arr[i];
-            }
+        public Car(string name, int maxSpeed)
+        {
+            this.name = name;
+            this.maxSpeed = maxSpeed;
         }
 
-        return max;
-    }
-    public static void Main() {   
-        Console.Write("Введіть 1 число: ");
-        int a = int.Parse(Console.ReadLine());
-        
-        Console.Write("Введіть 2 число: ");
-        int b = int.Parse(Console.ReadLine());
-        
-        Console.Write("Введіть розмір масиву: ");
-        int size = int.Parse(Console.ReadLine());
-
-        int[] array = new int[size];
-        for (int i = 0; i < size; i++) {
-            Console.Write($"Введіть елемент {i + 1}: ");
-            array[i] = int.Parse(Console.ReadLine());
+        public string GetName()
+        {
+            return name;
         }
 
+        public int GetMaxSpeed()
+        {
+            return maxSpeed;
+        }
+    }
 
-        Console.WriteLine(CalculateAverage(a, b));
-        Console.WriteLine(MaxNumber(array, size));
+    public class Class1
+    {
+        public static void Main()
+        {
+            Car car1 = new Car("BMW", 350);
+            Car car2 = new Car("Supra", 450);
+            Console.WriteLine(car1.GetMaxSpeed() > car2.GetMaxSpeed() ? car1.GetName() : car2.GetName());
+        }
     }
 }
